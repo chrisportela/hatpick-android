@@ -1,0 +1,13 @@
+#/.gitignore
+#.project
+#.classpath
+.settings/
+build.properties
+build.xml
+default.properties
+local.properties
+bin/
+gen/
+res/values/dropbox.xml
+proguard.cfg
+AndroidManifest.xml
