@@ -93,6 +93,21 @@ public class HatPickActivity extends Activity {
 		});
 
 	}
+	
+	//I am really hoping this will keep the data safe when changing orientations. However, it would suck if now it didn't do anything. The super method should handle all of that though.
+	@Override
+	public void onConfigurationChanged(Configuration newConfig)
+	{
+		super.onConfigurationChanged(newConfig);
+
+		//checking orientation
+		if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+			Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+
+		} else if( newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+			Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+		}
+	}
 
 	public void pickItem() {
 		int item = -1;
@@ -116,4 +131,6 @@ public class HatPickActivity extends Activity {
 		alert.show();
 		listAdapter.notifyDataSetChanged();
 	}
+	
+	//Override the method call for when there is a pause. I think that is what the system calls when it goes to switch the screen. I need to pass an internal intent with data for this app so it can maintain the data in the list on switch.
 }
